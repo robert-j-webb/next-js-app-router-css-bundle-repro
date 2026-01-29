@@ -19,3 +19,5 @@ The app runs as normal
 ## Issue
 
 - When running the analyzer `pnpm build:analyzer` and visit [http://localhost:4000/](http://localhost:4000/), you can see that the `Button.module.scss` also included in both `dashboard` and `dashboard/users` case. At first, I thought it was the bundle analyzer issue, but the CSS actually loads on the page as well. Worst of all, these are all load with the page and blocking view. On my production project with >100 componentsm it is a massive 11 seconds blocking on Lighthouse, effectively tank our Lighthouse/CWV. Since the Next App router doesn't have a way to extract critical CSS or interfere with CSS loading order, this is very urgent
+
+<img width="4482" height="2690" alt="image" src="https://github.com/user-attachments/assets/aeb09712-84b5-4c10-8443-d431d2fe2a77" />
