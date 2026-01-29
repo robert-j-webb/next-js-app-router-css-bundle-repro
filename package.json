@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:analyze": "next experimental-analyze"
   },
   "dependencies": {
     "next": "16.1.6",

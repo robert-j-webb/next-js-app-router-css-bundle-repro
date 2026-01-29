@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nextjs App Router CSS Bundle repo
 
-## Getting Started
+This application is the simple reproduction of the Turbopack CSS issue.
 
-First, run the development server:
+## Getting started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- pnpm install
+- pnpm build
+- pnpm start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app runs as normal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- The app has 4 pages: home, dashboard, dashboard/users, and not found
+- Header is shared across the entire app via Root layout
+- Button is only used in 2 pages: `not found` and `home`
 
-## Learn More
+## Issue
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- When running the analyzer `pnpm build:analyzer` and visit [http://localhost:4000/](http://localhost:4000/), you can see that the `Button.module.scss` also included in both `dashboard` and `dashboard/users` case. At first, I thought it was the bundle analyzer issue, but the CSS actually loads on the page as well. Worst of all, these are all load with the page and blocking view. On my production project with >100 componentsm it is a massive 11 seconds blocking on Lighthouse, effectively tank our Lighthouse/CWV. Since the Next App router doesn't have a way to extract critical CSS or interfere with CSS loading order, this is very urgent

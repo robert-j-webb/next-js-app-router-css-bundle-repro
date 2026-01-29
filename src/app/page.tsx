@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button } from "@/components/Button";
 
 export default function Home() {
   return (
@@ -17,13 +18,12 @@ export default function Home() {
           <h1>To get started, edit the page.tsx file.</h1>
           <p>
             Looking for a starting point or more instructions? Head over to{" "}
-            <a
+            <Button
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+              variant="secondary"
             >
               Templates
-            </a>{" "}
+            </Button>{" "}
             or the{" "}
             <a
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -51,14 +51,13 @@ export default function Home() {
             />
             Deploy Now
           </a>
-          <a
+          <Button
             className={styles.secondary}
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            variant="secondary"
           >
             Documentation
-          </a>
+          </Button>
         </div>
       </main>
     </div>
