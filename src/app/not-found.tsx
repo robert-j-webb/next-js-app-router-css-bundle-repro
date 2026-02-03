@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import Link from "next/link";
 import styles from "./not-found.module.css";
 
 export default function NotFoundPage() {
@@ -11,10 +11,10 @@ export default function NotFoundPage() {
           The page you are looking for does not exist or was moved.
         </p>
         <div className={styles.actions}>
-          <Button href="/">Go home</Button>
-          <Button href="/dashboard" variant="secondary">
+          <Link href="/" prefetch={false}>Go home</Link>
+          <Link href="/dashboard" prefetch={false}>
             Open dashboard
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

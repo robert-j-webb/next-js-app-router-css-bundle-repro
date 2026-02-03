@@ -5,11 +5,11 @@ export function Header() {
   return (
     <header className={styles.header}>
       <nav aria-label="Main" className={styles.nav}>
-        <Link className={styles.brand} href="/">
+        <Link className={styles.brand} href="/" prefetch={false}>
           Atlas UI
         </Link>
         <div className={styles.links}>
-          <Link  href="/">
+          <Link href="/" prefetch={false}>
             Home
           </Link>
           <Link href="/dashboard">

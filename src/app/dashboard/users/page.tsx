@@ -42,7 +42,7 @@ export default function DashboardUsersPage() {
             Manage access and view recent activity.
           </p>
         </div>
-        <a href="/dashboard" variant="secondary">
+        <a href="/dashboard">
           Back to Dashboard
         </a>
       </header>
@@ -62,9 +62,8 @@ export default function DashboardUsersPage() {
             </div>
             <span className={styles.role}>{user.role}</span>
             <span
-              className={`${styles.status} ${
-                styles[user.status.toLowerCase()]
-              }`}
+              className={`${styles.status} ${styles[user.status.toLowerCase()]
+                }`}
             >
               {user.status}
             </span>
